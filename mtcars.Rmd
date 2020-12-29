@@ -1,0 +1,38 @@
+---
+title: "Shiny Application and Reproducible Pitch"
+author: "Roxana Trejos Ramirez"
+date: "12/28/2020"
+output:
+  slidy_presentation: default
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+This presentation is part of the last course Developing Data Products. The peer assessed assignment has two parts:
+
+1.  Create a Shiny application and deploy it on Rstudio's servers. 
+2.  Use Slidify or Rstudio Presenter to prepare a reproducible pitch presentation about the application. 
+
+Slidify presentation:   https://roxtrejos.shinyapps.io/sarp/
+
+I have selected mtcars to develop my product for this assigment.
+
+
+```{r warning=FALSE}
+    library(shiny)
+    library(datasets)
+    library(dplyr)
+    library(ggplot2)
+    library(car)
+```
+
+The data used in the app comes from the Motor Trend Car Road Tests (mtcars) dataset. The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models). We can look to some carachteristics of the data:
+
+```{r warning=FALSE}
+    head(mtcars)
+    scatterplotMatrix(~mpg+disp+wt, data=mtcars, cex.axis=1.5)
+
+    plot <- ggplot(data=mtcars, aes(x=hp, y = mpg))+
+            geom_point(aes(color = as.factor(cyl)), alpha = 0.9)
+        plot
+```
